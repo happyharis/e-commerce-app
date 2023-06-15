@@ -5,9 +5,11 @@ import CartItem from "../components/CartItem";
 export default function Cart() {
   const cart = useSelector((state) => state.cart);
   let subtotal = 0;
+
   cart.forEach((item) => {
     // assumes price is in the format 'RMxx'
-    subtotal += parseInt(item.price.substring(2));
+    // now it multiplies by the amount
+    subtotal += parseInt(item.price.substring(2)) * item.amount;
   });
 
   return (

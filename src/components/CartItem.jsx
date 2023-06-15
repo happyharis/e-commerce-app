@@ -13,7 +13,9 @@ export default function CartItem({ item }) {
             />
           </Col>
           <Col xs={8} md={6}>
-            <Card.Title>{item.name}</Card.Title>
+            <Card.Title>
+              {item.amount} x {item.name}
+            </Card.Title>
             <Card.Text>{item.description}</Card.Text>
           </Col>
         </Row>

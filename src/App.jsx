@@ -9,7 +9,12 @@ import Home from "./pages/Home";
 import Cart from "./pages/Cart";
 
 export function Layout() {
-  const cartItemCount = useSelector((state) => state.cart.length);
+  const cart = useSelector((state) => state.cart);
+
+  const totalItemsInCart = cart.reduce((accumulator, item) => {
+    return accumulator + item.amount;
+  }, 0);
+
   return (
     <>
       <Navbar bg="light" variant="light">
@@ -19,7 +24,7 @@ export function Layout() {
             <Nav.Link href="/cart">
               <i className="bi bi-cart"></i>
               <Badge pill variant="primary">
-                {cartItemCount}
+                {totalItemsInCart}
               </Badge>
             </Nav.Link>
           </Nav>
